@@ -1,0 +1,168 @@
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    gap: 20px;
+}
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.card {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    box-sizing: border-box;
+}
+h1 {
+    color: white;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 2rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.input-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 8px;
+}
+label {
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 16px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    outline: none;
+    transition: all 0.3s ease;
+}
+input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+input:focus {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: white;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+button {
+    position: relative;
+    background: linear-gradient(135deg, #ff5722, #ff9800);
+    color: white;
+    padding: 16px 32px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 87, 34, 0.4);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    margin-top: 10px;
+}
+button::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 50px;
+    box-shadow: 0 0 0 0 rgba(255, 87, 34, 0.7);
+    animation: pulse 2s infinite;
+    pointer-events: none;
+}
+@keyframes pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 87, 34, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(255, 87, 34, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 87, 34, 0); }
+}
+button:hover {
+    transform: translateY(-4px) scale(1.03);
+    background: linear-gradient(135deg, #e64a19, #ff5722);
+    box-shadow: 0 8px 25px rgba(255, 87, 34, 0.6);
+}
+button:active {
+    transform: translateY(-1px) scale(0.98);
+    box-shadow: 0 4px 10px rgba(255, 87, 34, 0.4);
+}
+.download-btn {
+    background: linear-gradient(135deg, #4caf50, #8bc34a);
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+    margin-top: 20px;
+    text-decoration: none;
+    display: inline-block;
+    box-sizing: border-box;
+    width: auto;
+}
+.download-btn::before {
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+    animation: downloadPulse 2s infinite;
+}
+@keyframes downloadPulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(76, 175, 80, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+}
+.download-btn:hover {
+    background: linear-gradient(135deg, #43a047, #4caf50);
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.6);
+}
+.result-card {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+.qr-display {
+    background: white;
+    padding: 15px;
+    border-radius: 16px;
+    display: inline-block;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    margin-top: 15px;
+}
+.qr-display img {
+    display: block;
+    max-width: 200px;
+    height: auto;
+}
+.url-text {
+    color: white;
+    word-break: break-all;
+    font-size: 0.85rem;
+    margin-top: 15px;
+    opacity: 0.8;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

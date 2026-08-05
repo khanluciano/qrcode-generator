@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar Code Generator</title>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+     <div class="card">
+        <h1>Bar(qr) Code Generator</h1>
+        <p>Turn any web link into a custom scan code instantly.</p>
+
+        <form method="post" action="." class="form-container">
+            <div class="input-group">
+                <label for="link-input">PASTE YOUR URL</label>
+                <input type="url" id="link-input" name="qr_link" placeholder="https://example.com" value="{{ submitted_url|default:'' }}" required />
+            </div>
+            
+            <button type="submit">
+                GENERATE CODE
+            </button>
+        </form>
+    </div>
+
+    {% if qr_code %}
+    <div class="card result-card">
+        <h2 style="color: white; margin-top: 0;">Your Code is Ready!</h2>
+        <div class="qr-display">
+            <img id="qr-image" src="{{ qr_code }}" alt="Generated QR Code">
+        </div>
+        <div class="url-text">Linked to: {{ submitted_url }}</div>
+        
+        <button class="download-btn" onclick="downloadQR()">
+            DOWNLOAD QR CODE
+        </button>
+    </div>
+
+    <script>
+        function downloadQR() {
+            const qrImageSrc = document.getElementById('qr-image').src;
+            const downloadLink = document.createElement('a');
+            downloadLink.href = qrImageSrc;
+            downloadLink.download = 'qrcode.png';
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        }
+    </script>
+    {% endif %}
+
+</body>
+</html>
