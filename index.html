@@ -24,15 +24,16 @@
             </button>
         </form>
     </div>
-
     {% if error %}<p>{{ error }}</p>{% endif %}
+
+    {% if qr_code %}
     <div class="card result-card">
         <h2 style="color: white; margin-top: 0;">Your Code is Ready!</h2>
         <div class="qr-display">
             <img id="qr-image" src="{{ qr_code }}" alt="Generated QR Code">
         </div>
         <div class="url-text">Linked to: {{ submitted_url }}</div>
-        
+
         <button class="download-btn" onclick="downloadQR()">
             DOWNLOAD QR CODE
         </button>
