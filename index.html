@@ -25,7 +25,7 @@
         </form>
     </div>
 
-    {% if qr_code %}
+    {% if error %}<p>{{ error }}</p>{% endif %}
     <div class="card result-card">
         <h2 style="color: white; margin-top: 0;">Your Code is Ready!</h2>
         <div class="qr-display">
